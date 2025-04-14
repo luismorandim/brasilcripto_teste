@@ -1,8 +1,9 @@
-import 'package:brasilcripto_teste/views/api_test_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'views/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'BrasilCripto',
-      home: ApiTestScreen(),
+      theme: ThemeData(primarySwatch: Colors.indigo),
+      home: const HomeScreen(),
     );
   }
 }
