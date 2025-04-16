@@ -72,8 +72,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
       final updated = state.coins.map((c) => freshMap[c.id] ?? c).toList();
       _originalCoins = updated;
       state = state.copyWith(coins: updated);
-    } catch (_) {
-    }
+    } catch (_) {}
   }
 
   void _startAutoRefresh() {
@@ -97,7 +96,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
     );
 
     try {
-      final results = await _apiService.searchCoin(query);
+      final results = await _apiService.searchCoins(query);
 
       state = state.copyWith(
         coins: results,
